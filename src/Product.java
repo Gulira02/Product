@@ -1,61 +1,78 @@
 import java.time.LocalDate;
 
-public class Car {
-    private String make;
-    private int yearOfManufacture;
-    private double price;
-    private BodyType bodyType;
+public class Product {
 
 
-    public Car(int make, int yearOfManufacture, double price, Enum bodyType) {
-        this.make = String.valueOf(make);
-        this.yearOfManufacture = yearOfManufacture;
+  //  protected Object products;
+    ProductType productType;
+    private String name;
+    private String description; //Описание
+    private int price;
+    private LocalDate madeOfDate;
+
+    public Product(String name, String description, int price, LocalDate madeOfDate) {
+        this.name = name;
+        this.description = description;
         this.price = price;
-        this.bodyType = (BodyType) bodyType;
+        this.madeOfDate = madeOfDate;
     }
 
-    public String getMake() {
-        return make;
+    public Product() {
     }
 
-    public int getYearOfManufacture() {
-        return yearOfManufacture;
+
+    public String getName() {
+        return name;
     }
 
-    public double getPrice() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getPrice() {
         return price;
     }
 
-    public BodyType getBodyType() {
-        return bodyType;
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public LocalDate getMadeOfDate() {
+        return madeOfDate;
+    }
+
+    public void setMadeOfDate(LocalDate madeOfDate) {
+        this.madeOfDate = madeOfDate;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
 
 
-
-    public Object bodyTypeIdentification() {
-
-        switch (bodyType) {
-            case SEDAN:
-                return "sedan";
-            case HATCHBACK:
-                return "Passenger class car";
-            case CROSSOVER:
-            case SUV:
-                return "SUV class car";
-            case STATION_WAGON:
-                return "Station wagon class car";
-            default:
-                return "Unknown body type";
-        }
-
-
-    //determinationoYearOfManufacture методу, азыркы жыл LocalDate now getYear
-}
-public int  determinationoYearOfManufacture(){
-    LocalDate now = LocalDate.now();
-    return now.getYear() - yearOfManufacture;
-}
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productType=" + productType +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", madeOfDate=" + madeOfDate +
+                '}';
+    }
 
 
 
